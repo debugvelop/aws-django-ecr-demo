@@ -1,1 +1,1 @@
-# AWS Demo: Containerized Django & PostgreSQL
+# AWS Demo: Containerized Django
