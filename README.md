@@ -1,5 +1,5 @@
 # AWS Demo: Containerized Django
-Let's say right now you want to try Django. Then at some point in the future you want to reset it. Unconciously you had already installed so much that reinstall Django will break something. One way to prevent this nightmare is by containerizing Django and store it in a container registry for later use.
+Let's say right now you want to try Django. Then at some point in the future you want to reset it. Unconciously you had already installed so much that reinstall Django will break something. One way to prevent this nightmare is by containerizing Django and store it in a container registry.
 
 ### Requirement
 * AWS account (free tier is sufficient)
@@ -14,9 +14,10 @@ Let's say right now you want to try Django. Then at some point in the future you
 ```
 $ sudo apt update && sudo apt install apt-transport-https ca-certificates curl gnupg-agent software-properties-common -y
 ```
-4. Add and verify Docker’s official GPG key.
+4. Add and verify Docker’s official GPG key -> `9DC8 5822 9FC7 DD38 854A  E2D8 8D81 803C 0EBF CD88`.
 ```
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo apt-key fingerprint 0EBFCD88
 ```
 5. Set Docker's repository to stable version.
 ```
@@ -30,16 +31,16 @@ sudo apt update && sudo apt install docker-ce -y
 ```
 sudo docker run hello-world
 ```
-8. Clone this repository
+8. Clone this repository.
 ```
 git clone https://github.com/debugvelop/aws-django-ecr-demo.git
 ```
-9. Build the image (this may take a while)
+9. Build the image (this may take a while).
 ```
 cd aws-django-ecr-demo
 sudo docker build -t demo .
 ```
-10. Verify the image is successfully built by run it and open the instance's public IP address on your browser
+10. Verify the image is successfully built by run it and open the instance's public IP address on your browser.
 ```
 sudo docker run demo -d -p 80:8000
 ```
@@ -76,3 +77,12 @@ sudo docker tag demo:latest 964277983528.dkr.ecr.ap-southeast-2.amazonaws.com/de
 10. Push it. The pattern should be similar as below (don't copy the command below).
 ```
 sudo docker push 964277983528.dkr.ecr.ap-southeast-2.amazonaws.com/demo:latest
+```
+* If you'd like to use the image, change **push** to **pull** from the command above.
+
+### References
+* [AWS CLI Installation](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-linux.html#cliv2-linux-install)
+* [Docker Engine Installation](https://docs.docker.com/engine/install/ubuntu/)
+* [Docker and Django](https://docs.docker.com/compose/django/)
+* [Dockerfile](https://docs.docker.com/engine/reference/builder/)
+* [Python Dockerfile](https://github.com/docker-library/python/blob/6a981ebc3ba38d0668db58813f309e58763438e1/3.8/buster/slim/Dockerfile)
