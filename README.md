@@ -51,6 +51,7 @@ sudo docker run demo -d -p 80:8000
 2. Save **access key ID** and **secret access key**.
 3. Back to the instance's SSH and install AWS CLI.
 ```
+sudo apt install unzip -y
 unzip awscliv2.zip
 sudo ./aws/install -i /usr/local/aws-cli -b /usr/local/bin
 ```
@@ -58,7 +59,20 @@ sudo ./aws/install -i /usr/local/aws-cli -b /usr/local/bin
 ```
 aws --version
 ```
-5. Connect AWS CLI to IAM User by entering previously saved **access key ID** and **secret access key**.
+5. Connect AWS CLI to IAM User by entering previously saved **access key ID** and **secret access key**. Leave others on default (just enter).
 ```
 aws configure
 ```
+6. Go to Elastic Container Registry Management Console then create a new repository named **demo**.
+7. Select **demo** repository and click *View push commands*.
+8. Connect AWS ECR to your AWS CLI by entering the first command. The pattern should be similar as below (don't copy the command below).
+```
+aws ecr get-login-password --region ap-southeast-2 | **sudo** docker login --username AWS --password-stdin 964277983528.dkr.ecr.ap-southeast-2.amazonaws.com
+```
+9. Tag the image with the third command. The pattern should be similar as below (don't copy the command below).
+```
+sudo docker tag demo:latest 964277983528.dkr.ecr.ap-southeast-2.amazonaws.com/demo:latest
+```
+10. Push it. The pattern should be similar as below (don't copy the command below).
+```
+sudo docker push 964277983528.dkr.ecr.ap-southeast-2.amazonaws.com/demo:latest
