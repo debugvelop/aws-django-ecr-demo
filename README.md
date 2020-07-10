@@ -14,7 +14,7 @@ Let's say right now you want to try Django. Then at some point in the future you
 2. Connect to the instance.
 3. Update the apt package index and install packages to allow apt to use a repository over HTTPS.
 ```
-$ sudo apt update && sudo apt install apt-transport-https ca-certificates curl gnupg-agent software-properties-common -y
+sudo apt update && sudo apt install apt-transport-https ca-certificates curl gnupg-agent software-properties-common -y
 ```
 4. Add and verify Docker’s official GPG key -> `9DC8 5822 9FC7 DD38 854A  E2D8 8D81 803C 0EBF CD88`.
 ```
