@@ -41,5 +41,5 @@ sudo docker build -t demo .
 ```
 10. Verify the image is successfully built by run it and open the instance's public IP address on your browser
 ```
-sudo docker run demo -p 80:8000
+sudo docker run demo -d -p 80:8000
 ```
