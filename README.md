@@ -72,7 +72,7 @@ aws configure
 7. Select **demo** repository and click *View push commands*.
 8. Connect AWS ECR to your AWS CLI by entering the first command. The pattern should be similar as below (don't copy the command below).
 ```
-aws ecr get-login-password --region ap-southeast-2 | **sudo** docker login --username AWS --password-stdin 964277983528.dkr.ecr.ap-southeast-2.amazonaws.com
+aws ecr get-login-password --region ap-southeast-2 | sudo docker login --username AWS --password-stdin 964277983528.dkr.ecr.ap-southeast-2.amazonaws.com
 ```
 9. Tag the image with the third command. The pattern should be similar as below (don't copy the command below).
 ```
