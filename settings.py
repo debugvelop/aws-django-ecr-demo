@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '^wn^woih-7mkjc%_nzw^__5f4$&*@%mq-n8kn$!1_&76^95&et'
+SECRET_KEY = '%q6w51@z88pqlz0o)#pqc8$uirr^@9$4=rhm2pdfq7(^phet$5'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -80,7 +80,7 @@ DATABASES = {
         'USER': 'webclient',
         'PASSWORD': 'youcanchangethis',
         'HOST': 'localhost',
-        'PORT': 5432,
+        'PORT': 5432
     }
 }
 

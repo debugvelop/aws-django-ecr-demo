@@ -140,8 +140,10 @@ WORKDIR /codes
 COPY requirements.txt /codes/
 RUN pip install -r requirements.txt \
     && django-admin startproject demo . \
-    && rm settings.py
+    && rm /codes/demo/settings.py
 COPY settings.py /codes/demo/
-RUN python manage.py runserver 0.0.0.0:8000
 VOLUME /codes
 EXPOSE 8000
+CMD pg_ctl -D /var/lib/postgresql/data -l logfile start \
+	&& service postgresql enable \
+	&& python manage.py runserver 0.0.0.0:8000
