@@ -1,4 +1,4 @@
-# AWS Demo: Containerized Django + AWS RDS PostgreSQL
+# AWS Demo: Containerized Django
 Let's say right now you want to try Django. Then at some point in the future you want to reset it. Unconciously you had already installed so much that reinstall Django will break something. One way to prevent this nightmare is by containerizing Django and store it in a container registry for later use.
 
 ### Requirement
@@ -32,11 +32,11 @@ sudo docker run hello-world
 ```
 8. Clone this repository
 ```
-git clone https://github.com/debugvelop/aws-django-postgres-ecr-demo.git
+git clone https://github.com/debugvelop/aws-django-ecr-demo.git
 ```
 9. Build the image (this may take a while)
 ```
-cd aws-django-postgres-ecr-demo-git
+cd aws-django-ecr-demo
 sudo docker build -t demo .
 ```
 10. Verify the image is successfully built by run it and open the instance's public IP address on your browser
