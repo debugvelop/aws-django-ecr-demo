@@ -6,9 +6,9 @@ Let's say right now you want to try Django. Then at some point in the future you
 
 ### Create Django Docker Image in EC2
 1. Go to EC2 Management Console then launch an EC2 instance with this configuration:
-    * AMI: Ubuntu Server 20.04 LTS x86_64
-    * Type: t2.micro
-    * Security Groups: SSH(22), HTTP(80)
+   AMI | Ubuntu Server 20.04 LTS x86_64
+   Instance Type | t2.micro
+   Security Groups | SSH(22), HTTP(80)
 2. Connect to the instance.
 3. Update the apt package index and install packages to allow apt to use a repository over HTTPS.
 ```
@@ -47,8 +47,8 @@ sudo docker run demo -d -p 80:8000
 
 ### Upload Django Docker Image to Container Registry
 1. Go to IAM Console then add a new user for the instance with this configuration
-    * Access type: Programmatic Access
-    * Set permissions: Attach existing policies directly (AmazonEC2ContainerRegistryFullAccess)
+    Access type | Programmatic Access
+    Set permissions | Attach existing policies directly (AmazonEC2ContainerRegistryFullAccess)
 2. Save **access key ID** and **secret access key**.
 3. Back to the instance's SSH and install AWS CLI.
 ```
