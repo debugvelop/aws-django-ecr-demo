@@ -2,10 +2,10 @@
 Let's say right now you want to try Django + Postgres. As time goes by, you want to reset it. Unconciously you had already installed so much that reinstall Django + Postgres will break something. One way to prevent this nightmare is by containerized Django + Postgres.
 
 ### Requirement
-* AWS account (Free tier is sufficient)
+* AWS account (free tier is sufficient)
 
 ### Create Django + Postgres Docker Image in EC2
-1. Go to EC2 Management Console and launch an EC2 instance with this configuration:
+1. Go to EC2 Management Console then launch an EC2 instance with this configuration:
     * AMI: Ubuntu Server 20.04 LTS x86_64
     * Type: t2.micro
     * Security Groups: SSH(22), HTTP(80)
@@ -34,7 +34,7 @@ sudo docker run hello-world
 ```
 git clone https://github.com/debugvelop/aws-django-postgres-ecr-demo.git
 ```
-9. Build the image
+9. Build the image (this may take a while)
 ```
 cd aws-django-postgres-ecr-demo-git
 sudo docker build -t demo .
@@ -45,3 +45,8 @@ sudo docker run demo -d -p 80:8000
 ```
 
 ### Upload Django + Postgres Docker Image to Container Registry
+1. Go to IAM Console then add a new user for the instance with this configuration
+    * Access type: Programmatic Access
+    * Set permissions: Attach existing policies directly (AmazonEC2ContainerRegistryFullAccess)
+2. Save Access key ID and Secret access key.
+3. 
